@@ -13,6 +13,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import Adapter.AniAdapter;
 import Model.Animal;
@@ -31,6 +33,7 @@ public class Tab1Fragment extends Fragment {
     private RecyclerView recycler;
     private AniAdapter adapter;
     private List<Animal> animalList;
+    private List<Animal> animalListCopy ;
 
     @Nullable
     @Override
@@ -38,7 +41,36 @@ public class Tab1Fragment extends Fragment {
         View view = inflater.inflate(R.layout.tab1_fragment,container,false);
         recycler = (RecyclerView)view.findViewById(R.id.recycler);
         animalList = new ArrayList<>();
+        animalListCopy = new ArrayList<>();
         adapter = new AniAdapter(this.getContext(),animalList);
+
+        final SearchView simpleSearch = (SearchView)view.findViewById(R.id.searchView);
+        simpleSearch.setQueryHint("E.g. Tiger");
+        simpleSearch.setIconifiedByDefault(false);
+        simpleSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            @Override
+            public boolean onQueryTextSubmit(String search){
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                newText = newText.toLowerCase(Locale.getDefault());
+                animalList.clear();
+                if(newText.length() == 0){
+
+                    animalList.addAll(animalListCopy);
+                }else {
+                    for(Animal wp : animalListCopy){
+                        if (wp.getName().toLowerCase(Locale.getDefault()).contains(newText)) {
+                            animalList.add(wp);
+                        }
+                    }
+                }
+                adapter.notifyDataSetChanged();
+                return true;
+            }
+        });
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(view.getContext(), 2);
         recycler.setLayoutManager(mLayoutManager);
@@ -53,10 +85,10 @@ public class Tab1Fragment extends Fragment {
                 animalList.clear();
                 for(DataSnapshot snap : dataSnapshot.getChildren()){
                     Animal animal = snap.getValue(Animal.class);
-                    Log.d("asd",animal.getName());
+                    Log.d("GetAnimal",animal.getName());
                     animalList.add(animal);
                 }
-                Log.d("asd",animalList.get(1).getName());
+                animalListCopy.addAll(animalList);
                 adapter.notifyDataSetChanged();
             }
 
@@ -65,7 +97,6 @@ public class Tab1Fragment extends Fragment {
                 Log.e("DB","Read Failed : "+databaseError.getCode());
             }
         });
-
         return view;
     }
 
