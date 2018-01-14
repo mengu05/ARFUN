@@ -45,7 +45,7 @@ public class Tab1Fragment extends Fragment {
         adapter = new AniAdapter(this.getContext(),animalList);
 
         final SearchView simpleSearch = (SearchView)view.findViewById(R.id.searchView);
-        simpleSearch.setQueryHint("E.g. Tiger");
+        simpleSearch.setQueryHint("Search");
         simpleSearch.setIconifiedByDefault(false);
         simpleSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
             @Override
