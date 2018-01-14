@@ -91,13 +91,17 @@ public class Tab2Fragment extends Fragment implements View.OnDragListener, View.
     }
 
     public void clearViews(){
-        LinearLayout layout = (LinearLayout)getView().findViewById(R.id.topLayout);
-        if(layout.getChildCount()>0){
-            layout.removeAllViews();
-        }
-        layout = (LinearLayout)getView().findViewById(R.id.botLayout);
-        if(layout.getChildCount()>0){
-            layout.removeAllViews();
+        try {
+            LinearLayout layout = (LinearLayout) getView().findViewById(R.id.topLayout);
+            if (layout.getChildCount() > 0) {
+                layout.removeAllViews();
+            }
+            layout = (LinearLayout) getView().findViewById(R.id.botLayout);
+            if (layout.getChildCount() > 0) {
+                layout.removeAllViews();
+            }
+        }catch(Exception e){
+
         }
     }
 

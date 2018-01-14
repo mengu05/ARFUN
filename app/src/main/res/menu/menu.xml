@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/eraser"
+        android:icon="@drawable/eraser"
+        android:title="Eraser"
+        app:showAsAction="always"
+        />
+
+
+    <item
+        android:id="@+id/enlarge"
+        android:icon="@drawable/ic_zoom_in_black_24dp"
+        android:title="Enlarge"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/shrink"
+        android:icon="@drawable/ic_zoom_out_black_24dp"
+        android:title="Shrink"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/redColor"
+        android:title="@string/red"></item>
+
+    <item
+        android:id="@+id/orangeColor"
+        android:title="@string/orange"></item>
+
+    <item
+        android:id="@+id/yellowColor"
+        android:title="@string/yellow"></item>
+
+    <item
+        android:id="@+id/greenColor"
+        android:title="@string/green"></item>
+
+    <item
+        android:id="@+id/blueColor"
+        android:title="@string/blue"></item>
+
+    <item
+        android:id="@+id/indigoColor"
+        android:title="@string/indigo"></item>
+
+    <item
+        android:id="@+id/purpleColor"
+        android:title="@string/purple"></item>
+
+    <item
+        android:id="@+id/blackColor"
+        android:title="@string/black"></item>
+
+</menu>

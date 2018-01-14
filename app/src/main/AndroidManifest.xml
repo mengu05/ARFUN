@@ -22,6 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ARActivity"></activity>
+        <activity android:name=".PuzzleActivity"></activity>
+        <activity android:name=".DrawActivity"></activity>
     </application>
 
 </manifest>

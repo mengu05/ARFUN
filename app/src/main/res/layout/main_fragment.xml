@@ -1,20 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
-    <Button
-        android:id="@+id/btnAR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:onClick="arCamera"
-        android:text="@string/startAR"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</android.support.constraint.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/imageAR"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="0dp"
+        android:layout_weight="4"
+        android:contentDescription="@string/arcamera"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/ar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="0dp"
+        android:layout_weight="4"
+        android:orientation="horizontal"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/ar">
+
+        <ImageButton
+            android:id="@+id/imagePuzzles"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/puzzles"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/puzzle" />
+
+        <ImageButton
+            android:id="@+id/imageDraw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/draw"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/draw" />
+    </LinearLayout>
+</LinearLayout>
