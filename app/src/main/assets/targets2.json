@@ -12,6 +12,22 @@
     {
       "image" : "sightplus/argame03.jpg",
       "name" : "argame03"
+    },
+    {
+      "image" : "sightplus/cat.jpg",
+      "name" : "argame04"
+    },
+    {
+      "image" : "sightplus/dog.jpg",
+      "name" : "argame05"
+    },
+    {
+      "image" : "sightplus/kangaroo.jpg",
+      "name" : "argame06"
+    },
+    {
+      "image" : "sightplus/lion.jpg",
+      "name" : "argame07"
     }
   ]
 }
